@@ -29,15 +29,25 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. Explain how to build stateful class components.
-
+    We build our class component by declaring the class that extends React.Component parent class (which also allows us to implement useful methods i.e. component lifecycle) and call the constructor after that which allows us to set up some state and because we are calling extends, we also need to call super(); otherwise we won't have access to "this". After that, we use render() life cycle method  which allows us to render some UI to the DOM.
 2. Describe the different phases of the component lifecycle.
+   There are 3 React Lifecycle phases; 
 
+   1. Birth/Mounting: This is the phase when the component first is built out from the ground up. Whatever initial data we want to access to will be defined on the constructor of this phase. What happens is: render method is invoked and componentDidMount gets called as well subsequently.
+   2.Growth/Updating: This is where the component data gets updated, for that setState can be used to change the state data which forces a call to render.
+   Also, shouldComponentUpdate is a method one can use here to prevent component from re-rendering if necessary.
+   3.Death/Unmounting: Here basically, one can remove the component from the screen. ComponentWillUnmount method can be called to perform this work also can be used for any clean-up we may want to do.
+   
 3. Demonstrate an understanding of class component lifecycle methods.
-
+  There are three main component lifecycle methods we use for the three phases;
+  1.componentDidMount - This methods gets called as soon as the render method is called the first time, which then asks some bare bones of ...now what? It is also effective for fetching datas by requests.
+  2. componentDidUpdate - Method is called when the component is updated into the DOM.
+  3. componentWillUnmount - Method that removes the entire component or any side effects applied to the component.
 4. Define stateful logic.
-
+  Any logic that deals with the state or any piece of code that uses state.
 5. Describe how to test a React component with React Testing Library.
-
+    Follow the foundation pattern Arrange, Act, Assert. We do so by, declaring the render method which returns us utility functions for testing.
+    After that, we use one of the returned methods such as { getByText } that queries the DOM for specific node. Finally we run assertions for the actual expected output with expect() method combined with assertion method.
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
 ## Instructions
