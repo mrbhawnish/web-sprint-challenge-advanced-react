@@ -13,16 +13,21 @@ test("form header renders", () => {
 
 });
 
-test("form shows success message on submit with form details", async() => {
+test("form shows success message on submit with form details", () => {
     
-    const {getByTestId, getByText} = render(<CheckoutForm />)
-
-    
+    //Arranging the component and the corresponding utlity functions that match to get the elements
+    const {getByLabelText, getByTestId, getByText} = render(<CheckoutForm />)
+    const nameInput = getByLabelText("First Name:");
     const submitButton = getByText(/check-out/i)
 
-    
+    //Some actions here to simulate typing of the data and clicking submit
+    fireEvent.change(nameInput, { target: { value: "usertesting"}})
     fireEvent.click(submitButton)
 
-    await waitFor(() => expect(getByTestId(/successMessage/i)).toHaveTextContent("You have ordered some plants"))
+
+   // the expected results to contain the simulated data and the successmessage
+  
+      expect(getByTestId(/successMessage/i)).toHaveTextContent("usertesting")
+      expect(getByTestId(/successMessage/i)).toHaveTextContent("You have ordered some plants")
  
 });

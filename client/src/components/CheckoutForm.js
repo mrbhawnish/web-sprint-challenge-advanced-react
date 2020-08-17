@@ -20,15 +20,15 @@ const CheckoutForm = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}  data-testid="Checkoutform">
+      <form onSubmit={handleSubmit}>
         <h2>Checkout Form</h2>
         <label>
           First Name:
           <input
+            placeholder="Name"
             name="firstName"
             value={values.firstName}
             onChange={handleChanges}
-            data-testid="Firstname"
           />
         </label>
         <label>
