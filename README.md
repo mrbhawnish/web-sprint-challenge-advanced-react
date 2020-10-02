@@ -29,15 +29,20 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. Explain how to build stateful class components.
-
+  First of all we define the component with the class function that extends React.Component base which gives us access to different component lifecycle methods. We also implement a constructor method to the class component which holds our state data object. And then use super(), in order for our this work on our state. After that, we use render() method to render it to the DOM. 
 2. Describe the different phases of the component lifecycle.
-
+    The Birth/Mounting Phase: componentDidMount() is called after the render method has been invoked.
+    Growth/Updateing phase: componentDidUpdate() is called in hthis phase in order to update component's data, in which case setState could be used to update the component's state data which causes a re-render. 
+    Death/Un-mounting Phase: Refers to when removing a component from the screen, componentWillUnmount() runs which is used for any clean up we may need to do.
 3. Demonstrate an understanding of class component lifecycle methods.
-
+    componentDidMount(): It's a method used to set the component's state before the render first gets called. This method is best to be used for any HTTP requests for data because of its position in component life cycle.
+    componentDidUpdate(): This method is called after the component is updated in the DOM.
+    componentWillUnmount(): This method is called when the component is about to be removed from the DOM.
 4. Define stateful logic.
+    Stateful logic is any logic that alters the state of the component, it could be a handle function, or any other function that has something to do with the component's state.
 
 5. Describe how to test a React component with React Testing Library.
-
+    The convention used for react testing library is to follow Arrange, Act, Assert; Therefore, first of all we "arrange" our test by setting up our code such that it can be tested then, we can "act" by using one of the utility function, simulating the action or functionality. Finally, we can "assert" if our expected test output matches the actual output.
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
 ## Instructions
